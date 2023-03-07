@@ -82,3 +82,8 @@ async function internMenu() {
 }
 
 init();
+
+function createTeam() {
+  console.log("Generating Team Profile...");
+  fs.writeFileSync("./dist/index.html", createTeam(teamMembers), "utf-8");
+}
