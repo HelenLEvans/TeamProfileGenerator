@@ -2,6 +2,7 @@ teamMembers = [];
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateMarkdown = require("./utils/generateMarkdown");
 const fs = require("fs");
 const inquirer = require("inquirer");
 const {
@@ -39,7 +40,7 @@ async function menuChoice() {
         await internMenu();
         break;
       case "I don't want to add any more team members":
-        console.log(teamMembers);
+        createTeam(teamMembers);
         console.log("Goodbye!");
         break;
       default:
@@ -83,7 +84,7 @@ async function internMenu() {
 
 init();
 
-function createTeam() {
+function createTeam(teamMembers) {
   console.log("Generating Team Profile...");
-  fs.writeFileSync("./dist/index.html", createTeam(teamMembers), "utf-8");
+  fs.writeFileSync("./dist/index.html", generateMarkdown(teamMembers), "utf-8");
 }

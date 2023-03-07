@@ -1,4 +1,5 @@
 const generateMarkdown = (data) => {
+  console.log(data, "data-generateMarkdown");
   const card = ` <div class="card" style="width: 45%">
 <div class="card-body">
   <h5 class="card-title">Employee Name</h5>
