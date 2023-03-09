@@ -1,16 +1,31 @@
-const generateMarkdown = (data) => {
-  console.log(data, "data-generateMarkdown");
-  const card = ` <div class="card" style="width: 45%">
-<div class="card-body">
-  <h5 class="card-title">Employee Name</h5>
-  <h6 class="card-subtitle mb-2 text-muted">Employee role</h6>
-  <div class="card-text">
-    Employee-specific-property (github, office no, school)
-  </div>
-  <div class="card-text">employee email</div>
-</div>
-</div>`;
+const generateMarkdown = (teamMembers) => {
+  const employeeCard = (teamMembers) => {
+    let cardsHTML = "";
+    const specificProperty = (member) => {
+      if (member.getRole() === "Manager") {
+        return member.getOfficeNumber();
+      } else if (member.getRole() === "Engineer") {
+        return member.getGithub();
+      } else if (member.getRole() === "Intern") {
+        return member.getSchool();
+      }
+    };
+    teamMembers.forEach((member) => {
+      const card = `<div class="card" style="width: 45%">
+    <div class="card-body">
+      <h5 class="card-title">${member.getName()}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${member.getRole()}</h6>
+      <div class="card-text">
+     ${specificProperty(member)}
+      </div>
+      <div class="card-text">${member.getEmail()}</div>
+    </div>
+    </div>`;
+      cardsHTML = cardsHTML.concat(card);
+    });
 
+    return cardsHTML;
+  };
   return `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -29,7 +44,8 @@ const generateMarkdown = (data) => {
       <h1>Employees</h1>
   
       <div class="d-flex justify-content-center align-items-center w-100">
-        ${() => {}}
+       
+      ${employeeCard(teamMembers)}
   
         
   
