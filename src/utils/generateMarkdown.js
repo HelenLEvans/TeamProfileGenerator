@@ -46,13 +46,7 @@ const generateMarkdown = (teamMembers) => {
       <div class="d-flex justify-content-center align-items-center w-100">
        
       ${employeeCard(teamMembers)}
-  
-        
-  
-        
-  
-        
-      </div>
+    </div>
   
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

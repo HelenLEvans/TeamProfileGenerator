@@ -41,7 +41,6 @@ async function menuChoice() {
         break;
       case "I don't want to add any more team members":
         createTeam(teamMembers);
-        console.log("Goodbye!");
         break;
       default:
         console.log("Please enter a valid option!");
