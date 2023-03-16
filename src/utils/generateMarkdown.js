@@ -18,7 +18,7 @@ const generateMarkdown = (teamMembers) => {
       <div class="card-text">
      ${specificProperty(member)}
       </div>
-      <div class="card-text">${member.getEmail()}</div>
+      <a href="mailto:${member.getEmail()}" class="card-text">${member.getEmail()}</a>
     </div>
     </div>`;
       cardsHTML = cardsHTML.concat(card);
